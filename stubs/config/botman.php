@@ -3,6 +3,6 @@
 return [
     'telegram' => [
         'token' => 'TOKEN', //TODO set token here
-        'hideInlineKeyboard' => false,
+        'hideInlineKeyboard' => true,
     ]
 ];

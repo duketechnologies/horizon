@@ -2,7 +2,6 @@
 
 namespace App\Bot\Middleware;
 
-use App\Models\UserStorage;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -17,7 +16,7 @@ class LanguageInit
      */
     public function handle(Request $request, Closure $next)
     {
-        $lang = UserStorage::get('lang') ?? 'ru';
+        $lang = user_storage()->get('lang') ?? 'ru';
         app()->setLocale($lang);
 
         return $next($request);

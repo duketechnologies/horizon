@@ -13,12 +13,12 @@ class HorizonServiceProvider extends ServiceProvider
         }
 
         $this->commands([
-            Commands\InstallCommand::class,
+            Commands\HorizonInstallCommand::class,
         ]);
     }
 
     public function provides()
     {
-        return [Commands\InstallCommand::class];
+        return [Commands\HorizonInstallCommand::class];
     }
 }

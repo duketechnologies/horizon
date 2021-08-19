@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::post('bot'.config('botman.token'), function () {
+            Route::post('bot'.config('botman.telegram.token'), function () {
                 require base_path('routes/bot.php');
             })
             ->middleware([UserStorageInit::class, LanguageInit::class]);

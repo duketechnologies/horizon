@@ -1,25 +1,26 @@
 <?php
 
+use App\Models\UserStorage;
 use BotMan\Drivers\Telegram\Extensions\Keyboard;
 use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
+use Duke\Horizon\Drivers\CustomTelegramDriver;
 use Duke\Horizon\Rules\TelegramTextChecker;
 use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Cache\LaravelCache;
 use BotMan\BotMan\Drivers\DriverManager;
-use BotMan\Drivers\Telegram\TelegramDriver;
 use Spatie\Emoji\Emoji;
 
 if (! function_exists('botman_create')) { // Create a new BotMan instance.
     function botman_create() {
         $config = config('botman');
-        DriverManager::loadDriver(TelegramDriver::class);
+        DriverManager::loadDriver(CustomTelegramDriver::class);
         return BotManFactory::create($config, new LaravelCache());
     }
 }
 
-if (! function_exists('message_chat')) { // Get chat data from request
-    function message_chat() {
-        return request()->input('message.chat') ?? request()->input('callback_query.message.chat');
+if (! function_exists('chat_id')) { // Get chat id data from request
+    function chat_id() {
+        return request()->input('message.chat.id') ?? request()->input('callback_query.message.chat.id');
     }
 }
 
@@ -56,5 +57,12 @@ if (! function_exists('keyboard_back')) {
             ->resizeKeyboard()
             ->addRow(KeyboardButton::create(Emoji::leftArrow() .' '. __('bot.keyboard.back')))
             ->toArray();
+    }
+}
+
+if (! function_exists('user_storage')) {
+    function user_storage()
+    {
+        return UserStorage::where('telegram_id', chat_id())->first();
     }
 }

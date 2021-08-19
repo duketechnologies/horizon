@@ -5,7 +5,7 @@ namespace Duke\Horizon\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class InstallCommand extends Command
+class HorizonInstallCommand extends Command
 {
     protected $signature = 'horizon:install';
 

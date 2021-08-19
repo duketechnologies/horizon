@@ -17,13 +17,8 @@ class UserStorageInit
      */
     public function handle(Request $request, Closure $next)
     {
-        $chat = message_chat();
-
         UserStorage::firstOrCreate([
-            'telegram_id' => $chat['id']
-        ], [
-            'telegram_id' => $chat['id'],
-            'name' => ($chat['first_name'] ?? '-'),
+            'telegram_id' => chat_id()
         ]);
 
         return $next($request);

@@ -1,20 +1,20 @@
 <?php
 
-//use App\Bot\Conversations\AboutPromoConversation;
-//use App\Bot\Conversations\AuthorizationConversation;
-//use App\Bot\Conversations\ChooseLanguageConversation;
-//use App\Bot\Conversations\CouponConversation;
-//use App\Bot\Conversations\MenuConversation;
-//use App\Bot\Conversations\ProductsConversation;
-//use App\Bot\Conversations\ProfileConversation;
-//use App\Bot\Conversations\RegistrationConversation;
-//use App\Bot\Conversations\RulesConversation;
-//use App\Bot\Conversations\SendQuestionConversation;
-//use App\Bot\Conversations\SiteLinkConversation;
-//use App\Bot\Conversations\StartConversation;
-//use App\Bot\Conversations\WinnersConversation;
-//use App\Bot\Middleware\TypeWait;
-//use BotMan\BotMan\BotMan;
+use App\Bot\Conversations\AboutPromoConversation;
+use App\Bot\Conversations\AuthorizationConversation;
+use App\Bot\Conversations\ChooseLanguageConversation;
+use App\Bot\Conversations\CouponConversation;
+use App\Bot\Conversations\MenuConversation;
+use App\Bot\Conversations\ProductsConversation;
+use App\Bot\Conversations\ProfileConversation;
+use App\Bot\Conversations\RegistrationConversation;
+use App\Bot\Conversations\RulesConversation;
+use App\Bot\Conversations\SendQuestionConversation;
+use App\Bot\Conversations\SiteLinkConversation;
+use App\Bot\Conversations\StartConversation;
+use App\Bot\Conversations\WinnersConversation;
+use App\Bot\Middleware\TypeWait;
+use BotMan\BotMan\BotMan;
 
 
 $bot = botman_create();
