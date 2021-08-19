@@ -25,6 +25,9 @@ class HorizonInstallCommand extends Command
         // Config...
         File::copy(__DIR__ . '/../../stubs/config/botman.php', base_path('config/botman.php'));
 
+        // Migration ans empty sqlite db...
+        File::copyDirectory(__DIR__ . '/../../stubs/database', base_path('database'));
+
         // Langs...
         File::copyDirectory(__DIR__.'/../../stubs/lang', base_path('resources/lang'));
 
