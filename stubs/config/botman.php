@@ -2,7 +2,7 @@
 
 return [
     'telegram' => [
-        'token' => 'TOKEN', //TODO set token here
+        'token' => env('TELEGRAM_TOKEN'), //TODO set token here
         'hideInlineKeyboard' => true,
     ]
 ];

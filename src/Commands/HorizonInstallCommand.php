@@ -19,6 +19,9 @@ class HorizonInstallCommand extends Command
         // Rewrite Exceptions Handler...
         File::copy(__DIR__ . '/../../stubs/app/Exceptions/Handler.php', base_path('App/Exceptions/Handler.php'));
 
+        // UserStorage...
+        File::copy(__DIR__ . '/../../stubs/app/Models/UserStorage.php', base_path('App/Models/UserStorage.php'));
+
         // Rewrite RouteServiceProvider...
         File::copy(__DIR__ . '/../../stubs/app/Providers/RouteServiceProvider.php', base_path('App/Providers/RouteServiceProvider.php'));
 
