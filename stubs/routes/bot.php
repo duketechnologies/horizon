@@ -28,17 +28,17 @@ $bot = botman_create();
 
 //$bot->hears('.*'.__('bot.menu.profile').'.*', function (BotMan $bot) { return $bot->startConversation(new ProfileConversation()); });
 //$bot->hears('.*'.__('bot.menu.start_action').'.*', function (BotMan $bot) { return $bot->startConversation(new CouponConversation()); });
-//$bot->hears('.*'.__('bot.menu.products').'.*', function (BotMan $bot) { return $bot->startConversation(new ProductsConversation()); });
-//$bot->hears('.*'.__('bot.menu.send_question').'.*',  function (BotMan $bot) { return $bot->startConversation(new SendQuestionConversation()); });
-//$bot->hears('.*'.__('bot.menu.rules').'.*', function (BotMan $bot) { return $bot->startConversation(new RulesConversation()); });
-//$bot->hears('.*'.__('bot.menu.about_promo').'.*', function (BotMan $bot) { return $bot->startConversation(new AboutPromoConversation()); });
+$bot->hears('.*'.__('bot.menu.products').'.*', function (BotMan $bot) { return $bot->startConversation(new ProductsConversation()); });
+$bot->hears('.*'.__('bot.menu.send_question').'.*',  function (BotMan $bot) { return $bot->startConversation(new SendQuestionConversation()); });
+$bot->hears('.*'.__('bot.menu.rules').'.*', function (BotMan $bot) { return $bot->startConversation(new RulesConversation()); });
+$bot->hears('.*'.__('bot.menu.about_promo').'.*', function (BotMan $bot) { return $bot->startConversation(new AboutPromoConversation()); });
 //$bot->hears('.*'.__('bot.menu.winners').'.*', function (BotMan $bot) { return $bot->startConversation(new WinnersConversation()); });
-//$bot->hears('.*'.__('bot.menu.language').'.*', function (BotMan $bot) { return $bot->startConversation(new ChooseLanguageConversation()); });
-//$bot->hears('.*'.__('bot.menu.site_link').'.*', function (BotMan $bot) { return $bot->startConversation(new SiteLinkConversation()); });
+$bot->hears('.*'.__('bot.menu.language').'.*', function (BotMan $bot) { return $bot->startConversation(new ChooseLanguageConversation()); });
+$bot->hears('.*'.__('bot.menu.site_link').'.*', function (BotMan $bot) { return $bot->startConversation(new SiteLinkConversation()); });
 
 
-//$bot->hears('.*'.__('bot.keyboard.back').'.*', function (BotMan $bot) { return $bot->startConversation(new MenuConversation()); } )->stopsConversation();
-//$bot->fallback( function (BotMan $bot) { return $bot->startConversation(new MenuConversation()); });
+$bot->hears('.*'.__('bot.keyboard.back').'.*', function (BotMan $bot) { return $bot->startConversation(new MenuConversation()); } )->stopsConversation();
+$bot->fallback( function (BotMan $bot) { return $bot->startConversation(new MenuConversation()); });
 
 
 //$bot->middleware->sending(new TypeWait());

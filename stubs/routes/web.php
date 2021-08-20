@@ -14,11 +14,7 @@ Route::get('register_telegram_webhook', function () {
     $url_api_telegram_bot = 'https://api.telegram.org/bot' . $token . '/setWebhook';
     $url_webhook = url('bot' . $token);
 
-    $response = Http::withHeaders([
-        'Content-Type' => 'application/json'
-    ])->post($url_api_telegram_bot, [
-        'url' => $url_webhook
-    ]);
+    $response = Http::post($url_api_telegram_bot, [ 'url' => $url_webhook ]);
 
-    dd($response->body());
+    dd($response->json());
 });
