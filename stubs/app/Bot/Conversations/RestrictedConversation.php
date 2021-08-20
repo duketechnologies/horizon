@@ -14,8 +14,8 @@ class RestrictedConversation extends Conversation
         return Keyboard::create()
             ->type(Keyboard::TYPE_INLINE)
             ->addRow(
-                KeyboardButton::create(__('index.keyboard.yes'))->callbackData('yes'),
-                KeyboardButton::create(__('index.keyboard.no'))->callbackData('no')
+                KeyboardButton::create(__('bot.keyboard.yes'))->callbackData('yes'),
+                KeyboardButton::create(__('bot.keyboard.no'))->callbackData('no')
             )
             ->toArray();
     }
