@@ -2,12 +2,9 @@
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Vinkla\Shield\ShieldMiddleware;
 
 Route::get('/', function () {
-    return '';
-});
-
-Route::get('register_telegram_webhook', function () {
     \URL::forceScheme('https');
 
     $token = config('botman.telegram.token');
@@ -17,4 +14,4 @@ Route::get('register_telegram_webhook', function () {
     $response = Http::post($url_api_telegram_bot, [ 'url' => $url_webhook ]);
 
     dd($response->json());
-});
+})->middleware(ShieldMiddleware::class);
