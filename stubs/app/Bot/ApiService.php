@@ -2,97 +2,77 @@
 
 namespace App\Bot;
 
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class ApiService
 {
-
-    private static function getResponse($url, $params) {
-        $postdata = json_encode($params);
-
+    private static function getResponse($url, $data) {
+        $params = user_storage()->toArray();
+        $params += $data;
 
         $auth_key = env('SITE_API_KEY');
-        $base_url = env('SITE_API_URL');
-        $type = 'application/json';
+        $base_url = env('SITE_URL') . '/api/';
 
-        $client = new Client([
-            'headers' => [
-                'Content-Type' => $type,
-                'Auth-Key' => $auth_key
-            ]
-        ]);
-        $response = $client->post(
-            $base_url.$url,
-            [
-                'body' => $postdata
-            ],
-        );
+        $client = Http::withHeaders(['Auth-Key' => $auth_key])->post($base_url.$url, $params);
 
-        $res = json_decode($response->getBody());
-
-        return $res;
+        $response = $client->json();
+        dump($response);
+        return $response;
     }
 
-    public static function userCheck($params) {
-        $url = 'user/check';
-        $data = self::getResponse($url, $params);
-
-        return $data->status;
-    }
-
-    public static function userLogin($params) {
+    public static function userLogin($data = []) {
         $url = 'user/login';
-        $data = self::getResponse($url, $params);
+        $response = self::getResponse($url, $data);
 
-        return $data->status;
+        return isset($response['status']) ? $response['status'] : false;
     }
 
-    public static function userRegister($params) {
+    public static function userRegister($data = []) {
         $url = 'user/register';
-        $data = self::getResponse($url, $params);
+        $response = self::getResponse($url, $data);
 
-        return $data->status;
+        return isset($response['status']) ? $response['status'] : false;
     }
 
-    public static function userRestorePassword($params) {
+    public static function userRestorePassword($data = []) {
         $url = 'user/restore_password';
-        $data = self::getResponse($url, $params);
+        $response = self::getResponse($url, $data);
 
-        return $data->status;
+        return isset($response['status']) ? $response['status'] : false;
     }
 
-    public static function userProfile($params) {
+    public static function userProfile($data = []) {
         $url = 'user/profile';
-        $data = self::getResponse($url, $params);
+        $response = self::getResponse($url, $data);
 
-        return $data;
+        return $response;
     }
 
-    public static function checkStore($params) {
+    public static function checkStore($data = []) {
         $url = 'check/store';
-        $data = self::getResponse($url, $params);
+        $response = self::getResponse($url, $data);
 
-        return $data;
+        return $response;
     }
 
-    public static function winnersWeeks($params) {
-        $url = 'winners/weeks';
-        $data = self::getResponse($url, $params);
+//    public static function winnersWeeks($data = []) {
+//        $url = 'winners/weeks';
+//        $response = self::getResponse($url, $data);
+//
+//        return $response;
+//    }
+//
+//    public static function winnersList($data = []) {
+//        $url = 'winners/list';
+//        $response = self::getResponse($url, $data);
+//
+//        return $response;
+//    }
 
-        return $data;
-    }
-
-    public static function winnersList($params) {
-        $url = 'winners/list';
-        $data = self::getResponse($url, $params);
-
-        return $data;
-    }
-
-    public static function questionSend($params) {
+    public static function questionSend($data = []) {
         $url = 'question/send';
-        $data = self::getResponse($url, $params);
+        $response = self::getResponse($url, $data);
 
-        return $data;
+        return $response;
     }
 }

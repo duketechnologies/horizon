@@ -16,7 +16,6 @@ class AuthorizationConversation extends Conversation
     {
         return Keyboard::create()
             ->type(Keyboard::TYPE_KEYBOARD)
-            ->oneTimeKeyboard(true)
             ->resizeKeyboard()
             ->addRow(KeyboardButton::create(Emoji::telephone() .' '. __('bot.keyboard.phone'))->requestContact(true))
             ->addRow(KeyboardButton::create(Emoji::leftArrow() .' '. __('bot.keyboard.back')))
@@ -27,15 +26,15 @@ class AuthorizationConversation extends Conversation
     {
         return Keyboard::create()
             ->type(Keyboard::TYPE_INLINE)
-            ->addRow(KeyboardButton::create($again ? __('bot.keyboard.send_sms_again') : __('bot.keyboard.send_new_sms'))->callbackData('/repeat_sms'))
+            ->addRow(KeyboardButton::create($again ? __('bot.keyboard.send_sms_again') : __('bot.keyboard.send_new_sms'))->callbackData('sms_send_again'))
             ->toArray();
     }
 
     public function get_phone(){
         $this->ask(Emoji::telephone() .' '. __('bot.ask.phone'), function(Answer $answer) {
             $phone = $answer->getText() == '%%%_CONTACT_%%%' ?
-                     $answer->getMessage()->getContact()->getPhoneNumber() :
-                     remove_emoji($answer->getText());
+                $answer->getMessage()->getContact()->getPhoneNumber() :
+                remove_emoji($answer->getText());
 
             $validator = validate_field('phone', $phone, [new KZPhoneChecker()]);
 
@@ -62,18 +61,15 @@ class AuthorizationConversation extends Conversation
                     return $this->repeat();
                 }
 
-                $user_storage = user_storage()->set('sms', $sms);
-                if(ApiService::userLogin([
-                    'phone' => $user_storage->phone,
-                    'sms' => $user_storage->sms,
-                ])) {
+                user_storage()->set('sms', $sms);
+                if(ApiService::userLogin()) {
                     return $this->send_text();
                 } else {
                     $this->say(__('validation.custom.auth_failed'));
                     return $this->repeat();
                 }
-            } else if ($answer->getValue() == '/repeat_sms') {
-                if(ApiService::userRestorePassword(['phone' => user_storage()->get('phone')])) return $this->get_sms(true);
+            } else if ($answer->getValue() == 'sms_send_again') {
+                if(ApiService::userRestorePassword()) return $this->get_sms(true);
 
                 $this->say(__('validation.custom.phone_exist'));
                 return $this->bot->startConversation(new ChooseAuthenticationConversation());

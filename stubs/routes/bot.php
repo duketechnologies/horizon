@@ -43,13 +43,3 @@ $bot->fallback( function (BotMan $bot) { return $bot->startConversation(new Menu
 
 if (env('APP_ENV') == 'production') $bot->middleware->sending(new TypeWait());
 $bot->listen();
-
-function message_failed_login ($string) {
-    $array_command = [
-        __('bot.menu.profile'),
-        __('bot.menu.start_action'),
-        __('bot.menu.send_question'),
-    ];
-    foreach ($array_command as $command) if(str_contains($string, $command))return true;
-    return false;
-}isten();

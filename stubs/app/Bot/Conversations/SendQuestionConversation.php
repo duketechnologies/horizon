@@ -15,8 +15,8 @@ class SendQuestionConversation extends Conversation
         return Keyboard::create()
             ->type(Keyboard::TYPE_INLINE)
             ->addRow(
-                KeyboardButton::create(__('bot.keyboard.send'))->callbackData('/send'),
-                KeyboardButton::create(__('bot.keyboard.edit'))->callbackData('/edit')
+                KeyboardButton::create(__('bot.keyboard.send'))->callbackData('send'),
+                KeyboardButton::create(__('bot.keyboard.edit'))->callbackData('edit')
             )
             ->toArray();
     }
@@ -39,16 +39,13 @@ class SendQuestionConversation extends Conversation
     public function confirm_question($question = '-')
     {
         return $this->ask(__('bot.send_question.confirm', ['question' => $question]), function(Answer $answer) use ($question) {
-            if ($answer->getValue() == '/send') {
-                ApiService::questionSend([
-                    'phone' => user_storage()->get('phone'),
-                    'question' => $question
-                ]);
+            if ($answer->getValue() == 'send') {
+                ApiService::questionSend(['question' => $question]);
                 $this->say(__('bot.send_question.success'));
                 return $this->bot->startConversation(new MenuConversation());
             }
 
-            if ($answer->getValue() == '/edit')
+            if ($answer->getValue() == 'edit')
                 return $this->get_question();
         }, $this->keyboard_confirm());
     }

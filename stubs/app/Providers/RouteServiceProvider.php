@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Bot\Middleware\CheckAuth;
 use App\Bot\Middleware\LanguageInit;
 use App\Bot\Middleware\UserStorageInit;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -43,7 +44,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::post('bot'.config('botman.telegram.token'), function () {
                 require base_path('routes/bot.php');
             })
-            ->middleware([UserStorageInit::class, LanguageInit::class]);
+                ->middleware([UserStorageInit::class, LanguageInit::class, CheckAuth::class]);
 
             Route::prefix('api')
                 ->middleware('api')

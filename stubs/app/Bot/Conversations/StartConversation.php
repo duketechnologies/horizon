@@ -17,6 +17,6 @@ class StartConversation extends Conversation
         $message = OutgoingMessage::create(__('bot.start.text'));
         $this->say($message);
 
-        $this->bot->startConversation(new ChooseLanguageConversation());
+        $this->bot->startConversation(new RestrictedConversation());
     }
 }
