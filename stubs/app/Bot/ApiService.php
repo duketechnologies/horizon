@@ -20,56 +20,64 @@ class ApiService
         return $response;
     }
 
-    public static function userLogin($data = []) {
+    public static function userLogin($data = [])
+    {
         $url = 'user/login';
         $response = self::getResponse($url, $data);
 
         return isset($response['status']) ? $response['status'] : false;
     }
 
-    public static function userRegister($data = []) {
+    public static function userRegister($data = [])
+    {
         $url = 'user/register';
         $response = self::getResponse($url, $data);
 
         return isset($response['status']) ? $response['status'] : false;
     }
 
-    public static function userRestorePassword($data = []) {
+    public static function userRestorePassword($data = [])
+    {
         $url = 'user/restore_password';
         $response = self::getResponse($url, $data);
 
         return isset($response['status']) ? $response['status'] : false;
     }
 
-    public static function userProfile($data = []) {
+    public static function userProfile($data = [])
+    {
         $url = 'user/profile';
         $response = self::getResponse($url, $data);
 
         return $response;
     }
 
-    public static function checkStore($data = []) {
+    public static function checkStore($data = [])
+    {
         $url = 'check/store';
         $response = self::getResponse($url, $data);
 
         return $response;
     }
 
-//    public static function winnersWeeks($data = []) {
-//        $url = 'winners/weeks';
-//        $response = self::getResponse($url, $data);
-//
-//        return $response;
-//    }
-//
-//    public static function winnersList($data = []) {
-//        $url = 'winners/list';
-//        $response = self::getResponse($url, $data);
-//
-//        return $response;
-//    }
+    public static function winnersDaily($data = [])
+    {
+        $url = 'winners/daily';
+        $response = self::getResponse($url, $data);
 
-    public static function questionSend($data = []) {
+        return $response;
+    }
+
+    public static function winnersWeekly($data = [])
+    {
+        $url = 'winners/weekly';
+        $response = self::getResponse($url, $data);
+
+        return $response;
+    }
+
+    public static function questionSend($data = [])
+    {
         $url = 'question/send';
         $response = self::getResponse($url, $data);
 
