@@ -2,9 +2,9 @@
 
 namespace App\Bot\Conversations;
 
-use BotMan\BotMan\Messages\Attachments\Image;
-use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
+use Duke\Horizon\BotMan\Messages\Attachments\Image;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Messages\Outgoing\OutgoingMessage;
 
 class StartConversation extends Conversation
 {

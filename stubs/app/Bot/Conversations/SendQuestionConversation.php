@@ -3,10 +3,10 @@
 namespace App\Bot\Conversations;
 
 use App\Services\ApiService;
-use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Incoming\Answer;
-use BotMan\Drivers\Telegram\Extensions\Keyboard;
-use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Messages\Incoming\Answer;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\Keyboard;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 
 class SendQuestionConversation extends Conversation
 {

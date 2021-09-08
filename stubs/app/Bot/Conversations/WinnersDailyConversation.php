@@ -4,7 +4,7 @@ namespace App\Bot\Conversations;
 
 use App\Bot\ApiService;
 use App\Bot\InlineKeyboardPaginator;
-use BotMan\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
 
 class WinnersDailyConversation extends Conversation
 {

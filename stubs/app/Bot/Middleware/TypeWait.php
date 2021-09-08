@@ -2,8 +2,8 @@
 
 namespace App\Bot\Middleware;
 
-use BotMan\BotMan\BotMan;
-use BotMan\BotMan\Interfaces\Middleware\Sending;
+use Duke\Horizon\BotMan\BotMan;
+use Duke\Horizon\BotMan\Interfaces\Middleware\Sending;
 
 class TypeWait implements Sending
 {

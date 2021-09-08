@@ -2,7 +2,7 @@
 
 namespace App\Bot\Conversations;
 
-use BotMan\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
 
 class AboutPromoConversation extends Conversation
 {

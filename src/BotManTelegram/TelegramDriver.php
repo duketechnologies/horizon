@@ -1,28 +1,28 @@
 <?php
 
-namespace Duke\Horizon\Drivers;
+namespace Duke\Horizon\BotManTelegram;
 
-use BotMan\Drivers\Telegram\Exceptions\TelegramConnectionException;
+use Duke\Horizon\BotMan\Drivers\Telegram\Exceptions\TelegramConnectionException;
 use Illuminate\Support\Collection;
-use BotMan\BotMan\Drivers\HttpDriver;
-use BotMan\BotMan\Messages\Incoming\Answer;
-use BotMan\BotMan\Messages\Attachments\File;
-use BotMan\Drivers\Telegram\Extensions\User;
-use BotMan\BotMan\Messages\Attachments\Audio;
-use BotMan\BotMan\Messages\Attachments\Image;
-use BotMan\BotMan\Messages\Attachments\Video;
-use BotMan\BotMan\Messages\Attachments\Contact;
-use BotMan\BotMan\Messages\Outgoing\Question;
+use Duke\Horizon\BotMan\Drivers\HttpDriver;
+use Duke\Horizon\BotMan\Messages\Incoming\Answer;
+use Duke\Horizon\BotMan\Messages\Attachments\File;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\User;
+use Duke\Horizon\BotMan\Messages\Attachments\Audio;
+use Duke\Horizon\BotMan\Messages\Attachments\Image;
+use Duke\Horizon\BotMan\Messages\Attachments\Video;
+use Duke\Horizon\BotMan\Messages\Attachments\Contact;
+use Duke\Horizon\BotMan\Messages\Outgoing\Question;
 use Symfony\Component\HttpFoundation\Request;
-use BotMan\BotMan\Drivers\Events\GenericEvent;
+use Duke\Horizon\BotMan\Drivers\Events\GenericEvent;
 use Symfony\Component\HttpFoundation\Response;
-use BotMan\BotMan\Messages\Attachments\Location;
+use Duke\Horizon\BotMan\Messages\Attachments\Location;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use BotMan\BotMan\Messages\Incoming\IncomingMessage;
-use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
-use BotMan\Drivers\Telegram\Exceptions\TelegramException;
+use Duke\Horizon\BotMan\Messages\Incoming\IncomingMessage;
+use Duke\Horizon\BotMan\Messages\Outgoing\OutgoingMessage;
+use Duke\Horizon\BotMan\Drivers\Telegram\Exceptions\TelegramException;
 
-class CustomTelegramDriver extends HttpDriver
+class TelegramDriver extends HttpDriver
 {
     const DRIVER_NAME = 'Telegram';
     const API_URL = 'https://api.telegram.org/bot';
@@ -176,7 +176,7 @@ class CustomTelegramDriver extends HttpDriver
     public function messagesHandled()
     {
         $callback = $this->payload->get('callback_query');
-        $hideInlineKeyboard = config('botman.telegram.hideInlineKeyboard', true);
+        $hideInlineKeyboard = config('botman.telegra.hideInlineKeyboard', true);
 
         if ($callback !== null && $hideInlineKeyboard) {
             $callback['message']['chat']['id'];
@@ -188,7 +188,7 @@ class CustomTelegramDriver extends HttpDriver
     }
 
     /**
-     * @param  \BotMan\BotMan\Messages\Incoming\IncomingMessage $message
+     * @param  \BotMan\Messages\Incoming\IncomingMessage $message
      * @return Answer
      */
     public function getConversationAnswer(IncomingMessage $message)
@@ -284,7 +284,7 @@ class CustomTelegramDriver extends HttpDriver
      * Convert a Question object into a valid
      * quick reply response object.
      *
-     * @param \BotMan\BotMan\Messages\Outgoing\Question $question
+     * @param \BotMan\Messages\Outgoing\Question $question
      * @return array
      */
     private function convertQuestion(Question $question)
@@ -323,7 +323,7 @@ class CustomTelegramDriver extends HttpDriver
 
     /**
      * @param string|Question|IncomingMessage $message
-     * @param \BotMan\BotMan\Messages\Incoming\IncomingMessage $matchingMessage
+     * @param \BotMan\Messages\Incoming\IncomingMessage $matchingMessage
      * @param array $additionalParameters
      * @return Response
      */
@@ -423,7 +423,7 @@ class CustomTelegramDriver extends HttpDriver
      *
      * @param string $endpoint
      * @param array $parameters
-     * @param \BotMan\BotMan\Messages\Incoming\IncomingMessage $matchingMessage
+     * @param \BotMan\Messages\Incoming\IncomingMessage $matchingMessage
      * @return Response
      */
     public function sendRequest($endpoint, array $parameters, IncomingMessage $matchingMessage)

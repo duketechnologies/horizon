@@ -2,9 +2,9 @@
 
 namespace App\Bot\Conversations;
 
-use BotMan\BotMan\Messages\Attachments\File;
-use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
+use Duke\Horizon\BotMan\Messages\Attachments\File;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Messages\Outgoing\OutgoingMessage;
 use Spatie\Emoji\Emoji;
 
 class RulesConversation extends Conversation

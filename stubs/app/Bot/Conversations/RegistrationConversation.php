@@ -3,12 +3,12 @@
 namespace App\Bot\Conversations;
 
 use App\Bot\ApiService;
-use BotMan\BotMan\Messages\Attachments\File;
-use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\BotMan\Messages\Incoming\Answer;
-use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
-use BotMan\Drivers\Telegram\Extensions\Keyboard;
-use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
+use Duke\Horizon\BotMan\Messages\Attachments\File;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Messages\Incoming\Answer;
+use Duke\Horizon\BotMan\Messages\Outgoing\OutgoingMessage;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\Keyboard;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 use duke\helper\Rules\KZPhoneChecker;
 use Spatie\Emoji\Emoji;
 

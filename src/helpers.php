@@ -1,13 +1,13 @@
 <?php
 
 use App\Models\UserStorage;
-use BotMan\Drivers\Telegram\Extensions\Keyboard;
-use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\Keyboard;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 use Duke\Horizon\Drivers\CustomTelegramDriver;
 use Duke\Horizon\Rules\TelegramTextChecker;
-use BotMan\BotMan\BotManFactory;
-use BotMan\BotMan\Cache\LaravelCache;
-use BotMan\BotMan\Drivers\DriverManager;
+use Duke\Horizon\BotMan\BotManFactory;
+use Duke\Horizon\BotMan\Cache\LaravelCache;
+use Duke\Horizon\BotMan\Drivers\DriverManager;
 use Spatie\Emoji\Emoji;
 
 if (! function_exists('botman_create')) { // Create a new BotMan instance.

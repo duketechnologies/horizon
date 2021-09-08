@@ -2,9 +2,9 @@
 
 namespace App\Bot\Conversations;
 
-use BotMan\BotMan\Messages\Conversations\Conversation;
-use BotMan\Drivers\Telegram\Extensions\Keyboard;
-use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
+use Duke\Horizon\BotMan\Messages\Conversations\Conversation;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\Keyboard;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 
 class SiteLinkConversation extends Conversation
 {

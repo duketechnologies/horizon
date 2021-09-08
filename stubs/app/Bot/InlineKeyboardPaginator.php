@@ -2,8 +2,8 @@
 
 namespace App\Bot;
 
-use BotMan\Drivers\Telegram\Extensions\Keyboard;
-use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\Keyboard;
+use Duke\Horizon\BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 
 class InlineKeyboardPaginator
 {

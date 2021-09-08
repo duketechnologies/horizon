@@ -2,9 +2,9 @@
 
 namespace App\Bot\Middleware;
 
-use BotMan\BotMan\Interfaces\Middleware\Matching;
-use BotMan\BotMan\Messages\Incoming\IncomingMessage;
-use BotMan\Drivers\Telegram\TelegramDriver;
+use Duke\Horizon\BotMan\Interfaces\Middleware\Matching;
+use Duke\Horizon\BotMan\Messages\Incoming\IncomingMessage;
+use Duke\Horizon\BotMan\Drivers\Telegram\TelegramDriver;
 
 class RejectIfAttachments implements Matching
 {
