@@ -23,17 +23,17 @@ $bot = botman_create();
 $bot->hears('/start', function (BotMan $bot) { return $bot->startConversation(new StartConversation()); })->stopsConversation();
 
 
-//$bot->hears('/authorization', function (BotMan $bot) { return $bot->startConversation(new AuthorizationConversation()); });
-//$bot->hears('/registration', function (BotMan $bot) { return $bot->startConversation(new RegistrationConversation()); });
+//$bot->hears('/authorization', function (Drivers $bot) { return $bot->startConversation(new AuthorizationConversation()); });
+//$bot->hears('/registration', function (Drivers $bot) { return $bot->startConversation(new RegistrationConversation()); });
 
 
-//$bot->hears('.*'.__('bot.menu.profile').'.*', function (BotMan $bot) { return $bot->startConversation(new ProfileConversation()); });
-//$bot->hears('.*'.__('bot.menu.start_action').'.*', function (BotMan $bot) { return $bot->startConversation(new CouponConversation()); });
+//$bot->hears('.*'.__('bot.menu.profile').'.*', function (Drivers $bot) { return $bot->startConversation(new ProfileConversation()); });
+//$bot->hears('.*'.__('bot.menu.start_action').'.*', function (Drivers $bot) { return $bot->startConversation(new CouponConversation()); });
 $bot->hears('.*'.__('bot.menu.products').'.*', function (BotMan $bot) { return $bot->startConversation(new ProductsConversation()); });
 $bot->hears('.*'.__('bot.menu.send_question').'.*',  function (BotMan $bot) { return $bot->startConversation(new SendQuestionConversation()); });
 $bot->hears('.*'.__('bot.menu.rules').'.*', function (BotMan $bot) { return $bot->startConversation(new RulesConversation()); });
 $bot->hears('.*'.__('bot.menu.about_promo').'.*', function (BotMan $bot) { return $bot->startConversation(new AboutPromoConversation()); });
-//$bot->hears('.*'.__('bot.menu.winners').'.*', function (BotMan $bot) { return $bot->startConversation(new WinnersConversation()); });
+//$bot->hears('.*'.__('bot.menu.winners').'.*', function (Drivers $bot) { return $bot->startConversation(new WinnersConversation()); });
 $bot->hears('.*'.__('bot.menu.language').'.*', function (BotMan $bot) { return $bot->startConversation(new ChooseLanguageConversation()); });
 $bot->hears('.*'.__('bot.menu.site_link').'.*', function (BotMan $bot) { return $bot->startConversation(new SiteLinkConversation()); });
 
