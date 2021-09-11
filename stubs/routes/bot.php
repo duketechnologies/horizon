@@ -15,7 +15,7 @@ use App\Bot\Conversations\WinnersDailyConversation;
 use App\Bot\Conversations\WinnersWeeklyConversation;
 use App\Bot\Middleware\CheckAuth;
 use App\Bot\Middleware\TypeWait;
-use Duke\Horizon\BotMan\BotMan;
+use BotMan\BotMan\BotMan;
 
 
 $bot = botman_create();

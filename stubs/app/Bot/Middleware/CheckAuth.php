@@ -4,7 +4,7 @@ namespace App\Bot\Middleware;
 
 use App\Bot\ApiService;
 use App\Bot\Conversations\ChooseAuthenticationConversation;
-use Duke\Horizon\BotMan\Drivers\Telegram\TelegramDriver;
+use BotMan\Drivers\TelegramTelegramDriver;
 use Closure;
 use Illuminate\Http\Request;
 
