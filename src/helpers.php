@@ -26,7 +26,7 @@ if (! function_exists('chat_id')) { // Get chat id data from request
 
 if (! function_exists('rules_url')) {
     function rules_url() {
-        return env('SITE_URL').'docs/rules_'.app()->getLocale().'.pdf?t='.time();
+        return env('SITE_URL').'/docs/rules_'.app()->getLocale().'.pdf?t='.time();
     }
 }
 
