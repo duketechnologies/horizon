@@ -3,12 +3,12 @@
     "description": "Telegram bot template for Laravel",
     "license": "MIT",
     "require": {
-        "beyondcode/laravel-dump-server": "^1.7",
-        "botman/botman": "^2.6",
-        "botman/driver-telegram": "^1.6",
-        "duke/helper": "1.0.x-dev",
-        "spatie/emoji": "^2.3",
-        "vinkla/shield": "^7.1"
+        "beyondcode/laravel-dump-server": "*",
+        "botman/botman": "*",
+        "botman/driver-telegram": "*",
+        "duke/helper": "*",
+        "spatie/emoji": "*",
+        "vinkla/shield": "*"
     },
     "extra": {
         "branch-alias": {
